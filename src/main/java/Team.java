@@ -1,9 +1,8 @@
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class Team {
-  private List<String> members = new ArrayList<>();
+  private List<String> members;
   private String description;
   private String name;
   private static List<Team> instances = new ArrayList<>();

@@ -1,0 +1,31 @@
+{{#block header}}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{{#block "title"}}Welcome to Our Epicodus Blog{{/block}}</title>
+        <<link rel='stylesheet' href='/bootstrap.css'>
+        <link rel='stylesheet' href='/app.css'>
+    </head>
+{{/block}}
+    <body>
+        <ul class="nav nav-tabs">
+            <li role="presentation"><a href="/">Home</a></li>
+            <li role="presentation"><a href="/teams">See All Teams</a></li>
+            <li role="presentation"><a href="/teams/new">Add a New Team</a></li>
+        </ul>
+        <div class="container">
+            <!--begin main template-->
+
+            <div class="col-md-12">
+                {{#block "content"}}
+                {{/block}}
+            </div>
+        </div>
+{{#block footer}}
+    </body>
+</html>>
+{{/block}}
