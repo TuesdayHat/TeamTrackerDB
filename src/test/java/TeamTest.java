@@ -6,9 +6,9 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class TeamTest {
-  String name = "Team";
-  String desc = "The Best Team";
-  List<String> members = new ArrayList<String>(){{
+  private String name = "Team";
+  private String desc = "The Best Team";
+  private List<String> members = new ArrayList<String>(){{
     add("Bobson Dugnutt");
     add("Todd Bonzalez");
     add("Mike Truk");
@@ -16,7 +16,7 @@ public class TeamTest {
   }};
 
 
-  Team testTeam = new Team(name, members, desc);
+  private Team testTeam = new Team(name, members, desc);
 
   @Test
   public void Team_instantiates_bool(){
@@ -37,4 +37,11 @@ public class TeamTest {
   public void getMembers_getListOfMembers_List(){
     assert(testTeam.getMembers().size() > 2);
   }
+
+  @Test
+  public void getInstances_getListOfAllTeams_List(){
+    assert(Team.getInstances().size() > 0);
+  }
+
+
 }
