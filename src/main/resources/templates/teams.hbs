@@ -1,8 +1,8 @@
 {{#partial "content"}}
-    <p>Placeholder! -- All Teams</p>
+    <p>All Teams</p>
     {{#if "teams"}}
         {{#each "teams"}}
-            <p>{{ content }} <a href="/teams/{{id}}">read more...</a></p>
+            <p>{{ content }} <a href="/teams/{{id}}"> [Details]</a></p>
         {{/each}}
     {{else}}
         <p>Nobody's signed up yet!</p>

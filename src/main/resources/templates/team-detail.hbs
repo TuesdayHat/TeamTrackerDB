@@ -1,5 +1,11 @@
 {{#partial "content"}}
     <p>Placeholder! -- Detail of Team</p>
+
+    <p>team.name</p>
+    <p>team.description</p>
+    {{#each team.members}}
+        {{ content }}
+    {{/each}}
 {{/partial}}
 
 {{> layout.hbs}}

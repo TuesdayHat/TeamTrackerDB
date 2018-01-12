@@ -21,6 +21,9 @@ public class App {
       Map<String, Object> model = new HashMap<>();
 
       List<Team> teams = Team.getInstances();
+      for(Team team: teams){
+        System.out.println(team);
+      }
       model.put("teams", teams);
 
       return new ModelAndView(model, "teams.hbs");
@@ -37,7 +40,9 @@ public class App {
     get("/teams/:id", ((request, response) -> {
       Map<String, Object> model = new HashMap<>();
 
-
+      int teamId = Integer.parseInt(request.params("id"));
+      Team currTeam = Team.findById(teamId);
+      model.put("team", currTeam);
 
       return new ModelAndView(model, "team-detail.hbs");
     }), new HandlebarsTemplateEngine());
