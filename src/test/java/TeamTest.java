@@ -43,5 +43,8 @@ public class TeamTest {
     assert(Team.getInstances().size() > 0);
   }
 
-
+  @Test
+  public void getId_getIdOfCurrentPost_int(){
+    assert(testTeam.getId() > 0);
+  }
 }

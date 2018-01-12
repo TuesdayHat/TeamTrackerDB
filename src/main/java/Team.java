@@ -8,7 +8,7 @@ public class Team {
   private static List<Team> instances = new ArrayList<>();
   private int id;
 
-  public Team(String teamName, List<String> people, String desc){
+  Team(String teamName, List<String> people, String desc){
     instances.add(this);
     name = teamName;
     description = desc;
@@ -27,5 +27,9 @@ public class Team {
   }
   public static List<Team> getInstances(){
     return instances;
+  }
+
+  public int getId(){
+    return id;
   }
 }
