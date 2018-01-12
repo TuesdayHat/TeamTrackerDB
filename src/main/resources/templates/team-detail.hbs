@@ -1,10 +1,11 @@
 {{#partial "content"}}
-    <p>Placeholder! -- Detail of Team</p>
+    <h3>{{team.name}}</h3>
 
-    <p>{{team.name}}</p>
-    <p>{{team.description}}</p>
+    <p id="teamDesc">{{team.description}}</p>
+
+    <p>Members: </p>
     {{#each team.members}}
-        {{ team.member }}
+        <p>{{ this }}</p>
     {{/each}}
 {{/partial}}
 

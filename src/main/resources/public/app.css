@@ -15,3 +15,7 @@ form{
 label{
     color: #FFFFFF;
 }
+
+#teamDesc{
+    margin: 40px;
+}

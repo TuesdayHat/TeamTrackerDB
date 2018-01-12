@@ -2,9 +2,8 @@
     <p>All Teams</p>
 
     {{#if allTeams}}
-        <p>hello</p>
         {{#each allTeams}}
-            {{name}}
+            <p>{{name}} <a href="/teams/{{id}}">[Details]</a></p>
         {{/each}}
     {{else}}
         <p>Nobody's signed up yet!</p>
