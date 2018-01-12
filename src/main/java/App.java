@@ -16,5 +16,21 @@ public class App {
       model.put("teams", teams);
       return new ModelAndView(model, "index.hbs");
     }), new HandlebarsTemplateEngine());
+
+    get("/teams", ((request, response) -> {
+      Map<String, Object> model = new HashMap<>();
+
+
+
+      return new ModelAndView(model, "teams.hbs");
+    }), new HandlebarsTemplateEngine());
+
+    get("/teams/new", ((request, response) -> {
+      Map<String, Object> model = new HashMap<>();
+
+
+
+      return new ModelAndView(model, "newTeam-form.hbs");
+    }), new HandlebarsTemplateEngine());
   }
 }
