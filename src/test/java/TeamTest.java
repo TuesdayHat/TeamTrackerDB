@@ -1,21 +1,11 @@
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.junit.Assert.*;
 
 public class TeamTest {
   private String name = "Team";
   private String desc = "The Best Team";
   private String members = "Bobson Dugnutt, Todd Bonzalez, Mike Truk, Willie Dustice";
-//  private List<String> members = new ArrayList<String>(){{
-//    add("Bobson Dugnutt");
-//    add("Todd Bonzalez");
-//    add("Mike Truk");
-//    add("Willie Dustice");
-//  }};
-
 
   private Team testTeam = new Team(name, members, desc);
 
