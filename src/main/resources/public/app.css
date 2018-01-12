@@ -19,3 +19,11 @@ label{
 #teamDesc{
     margin: 40px;
 }
+
+#desc{
+    height: 100px;
+    width: 50%;
+}
+#members{
+    width: 50%;
+}

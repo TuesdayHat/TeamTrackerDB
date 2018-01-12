@@ -18,12 +18,6 @@ public class App {
     get("/teams", ((request, response) -> {
       Map<String, Object> model = new HashMap<>();
 
-//      List<Team> allTeams = Team.getInstances();
-//      for(Team team: allTeams){
-//        System.out.println(team);
-//      }
-//      model.put("allTeams", allTeams);
-
       return new ModelAndView(model, "teams.hbs");
     }), new HandlebarsTemplateEngine());
 
@@ -50,11 +44,7 @@ public class App {
 
       Team newTeam = new Team(newTeamname, newTeamMembers, newTeamDesc);
       List<Team> allTeams = Team.getInstances();
-//
-//      for(Team team: allTeams){
-//        System.out.println(team);
-//      }
-//
+
       model.put("allTeams", allTeams);
 
       return new ModelAndView(model, "teams.hbs");
