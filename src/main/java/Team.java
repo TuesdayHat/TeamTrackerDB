@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class Team {
@@ -16,6 +17,14 @@ public class Team {
     id = instances.size();
   }
 
+  public void setMembers(String names){
+    String[] arrNames = names.split(", ");
+    for (String name: arrNames){
+      members.add(name);
+    }
+  }
+
+  //SIMPLE GETTER METHODS______________________________
   public String getName() {
     return name;
   }
@@ -28,7 +37,6 @@ public class Team {
   public static List<Team> getInstances(){
     return instances;
   }
-
   public int getId(){
     return id;
   }

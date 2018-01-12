@@ -47,4 +47,13 @@ public class TeamTest {
   public void getId_getIdOfCurrentPost_int(){
     assert(testTeam.getId() > 0);
   }
+
+  @Test
+  public void setMembers_addMultipleMembersAtOnce_List(){
+    testTeam.setMembers("Onson Sweemey, Anatoli Smorrin, Kevin Noginly");
+//    for (String member: testTeam.getMembers()){
+//      System.out.println(member);
+//    }
+    assert(testTeam.getMembers().size() > 4);
+  }
 }
