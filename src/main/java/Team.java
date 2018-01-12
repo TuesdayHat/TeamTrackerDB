@@ -23,6 +23,10 @@ public class Team {
     }
   }
 
+  public static Team findById(int id){
+    return instances.get(id-1);
+  }
+
   //SIMPLE GETTER METHODS______________________________
   public String getName() {
     return name;

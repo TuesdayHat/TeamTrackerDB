@@ -1,5 +1,12 @@
 {{#partial "content"}}
-    <p>Placeholder!</p>
+    <p>Placeholder! -- All Teams</p>
+    {{#if "teams"}}
+        {{#each "teams"}}
+            <p>{{ content }} <a href="/teams/{{id}}">read more...</a></p>
+        {{/each}}
+    {{else}}
+        <p>Nobody's signed up yet!</p>
+    {{/if}}
 {{/partial}}
 
 {{> layout.hbs}}

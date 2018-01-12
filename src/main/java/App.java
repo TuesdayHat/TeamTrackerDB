@@ -12,15 +12,16 @@ public class App {
 
     get("/", ((request, response) -> {
       Map<String, Object> model = new HashMap<>();
-      List<Team> teams = Team.getInstances();
-      model.put("teams", teams);
+//      List<Team> teams = Team.getInstances();
+//      model.put("teams", teams);
       return new ModelAndView(model, "index.hbs");
     }), new HandlebarsTemplateEngine());
 
     get("/teams", ((request, response) -> {
       Map<String, Object> model = new HashMap<>();
 
-
+      List<Team> teams = Team.getInstances();
+      model.put("teams", teams);
 
       return new ModelAndView(model, "teams.hbs");
     }), new HandlebarsTemplateEngine());
@@ -31,6 +32,14 @@ public class App {
 
 
       return new ModelAndView(model, "newTeam-form.hbs");
+    }), new HandlebarsTemplateEngine());
+
+    get("/teams/:id", ((request, response) -> {
+      Map<String, Object> model = new HashMap<>();
+
+
+
+      return new ModelAndView(model, "team-detail.hbs");
     }), new HandlebarsTemplateEngine());
   }
 }

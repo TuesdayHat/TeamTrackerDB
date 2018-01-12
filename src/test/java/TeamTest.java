@@ -51,9 +51,12 @@ public class TeamTest {
   @Test
   public void setMembers_addMultipleMembersAtOnce_List(){
     testTeam.setMembers("Onson Sweemey, Anatoli Smorrin, Kevin Noginly");
-//    for (String member: testTeam.getMembers()){
-//      System.out.println(member);
-//    }
     assert(testTeam.getMembers().size() > 4);
+  }
+
+  @Test
+  public void findById_findIndividualTeamById_Team(){
+    Team team = new Team(name, members, desc);
+    assertEquals(1, Team.findById(testTeam.getId()).getId());
   }
 }
