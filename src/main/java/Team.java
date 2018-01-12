@@ -8,16 +8,25 @@ public class Team {
   private static List<Team> instances = new ArrayList<>();
   private int id;
 
-  Team(String teamName, List<String> people, String desc){
+  Team(String teamName, String people, String desc){
     instances.add(this);
     name = teamName;
     description = desc;
-    members = people;
+    members = popMembers(people);
     id = instances.size();
   }
 
-  public void setMembers(String names){
+  private List<String> popMembers(String names){
     String[] arrNames = names.split(", ");
+    List<String> teamMembers = new ArrayList<>();
+    for (String name: arrNames){
+      teamMembers.add(name);
+    }
+    return teamMembers;
+  }
+
+  public void setMembers(String names){
+    String[] arrNames = names.split(",");
     for (String name: arrNames){
       members.add(name);
     }

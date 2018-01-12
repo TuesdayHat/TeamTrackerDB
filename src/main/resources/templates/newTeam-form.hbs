@@ -1,14 +1,14 @@
 {{#partial "content"}}
-    <p>Placeholder! -- Add New Team</p>
-    <form action="/posts/new" method="post">
+    <p>Add New Team</p>
+    <form action="/teams" method="POST">
         <label for="name">Team Name</label>
-        <input id="name" name="name" type="text">
+        <input id="name" name="name" type="text"><br>
 
         <label for="desc">Team Description</label>
-        <input id="desc" name="desc" type="text">
+        <input id="desc" name="desc" type="text"><br>
 
         <label for="members">Members</label>
-        <input id="members" name="members" type="text">
+        <input id="members" name="members" type="text"><br>
 
         <button type="submit" class="btn btn-default">Add Team</button>
     </form>

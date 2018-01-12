@@ -12,28 +12,23 @@ public class App {
 
     get("/", ((request, response) -> {
       Map<String, Object> model = new HashMap<>();
-//      List<Team> teams = Team.getInstances();
-//      model.put("teams", teams);
       return new ModelAndView(model, "index.hbs");
     }), new HandlebarsTemplateEngine());
 
     get("/teams", ((request, response) -> {
       Map<String, Object> model = new HashMap<>();
 
-      List<Team> teams = Team.getInstances();
-      for(Team team: teams){
-        System.out.println(team);
-      }
-      model.put("teams", teams);
+//      List<Team> allTeams = Team.getInstances();
+//      for(Team team: allTeams){
+//        System.out.println(team);
+//      }
+//      model.put("allTeams", allTeams);
 
       return new ModelAndView(model, "teams.hbs");
     }), new HandlebarsTemplateEngine());
 
     get("/teams/new", ((request, response) -> {
       Map<String, Object> model = new HashMap<>();
-
-
-
       return new ModelAndView(model, "newTeam-form.hbs");
     }), new HandlebarsTemplateEngine());
 
@@ -45,6 +40,24 @@ public class App {
       model.put("team", currTeam);
 
       return new ModelAndView(model, "team-detail.hbs");
+    }), new HandlebarsTemplateEngine());
+
+    post("/teams", ((request, response) -> {
+      Map<String, Object> model = new HashMap<>();
+      String newTeamname = request.queryParams("name");
+      String newTeamDesc = request.queryParams("desc");
+      String newTeamMembers = request.queryParams("members");
+
+      Team newTeam = new Team(newTeamname, newTeamMembers, newTeamDesc);
+      List<Team> allTeams = Team.getInstances();
+//
+//      for(Team team: allTeams){
+//        System.out.println(team);
+//      }
+//
+      model.put("allTeams", allTeams);
+
+      return new ModelAndView(model, "teams.hbs");
     }), new HandlebarsTemplateEngine());
   }
 }

@@ -1,8 +1,10 @@
 {{#partial "content"}}
     <p>All Teams</p>
-    {{#if "teams"}}
-        {{#each "teams"}}
-            <p>{{ content }} <a href="/teams/{{id}}"> [Details]</a></p>
+
+    {{#if allTeams}}
+        <p>hello</p>
+        {{#each allTeams}}
+            {{name}}
         {{/each}}
     {{else}}
         <p>Nobody's signed up yet!</p>
