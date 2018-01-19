@@ -9,9 +9,6 @@ import org.sql2o.Sql2o;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by Guest on 1/19/18.
- */
 public class Sql2oTeamDaoTest {
     private Sql2oTeamDao teamDao;
     private Sql2oMemberDao memberDao;
@@ -115,9 +112,9 @@ public class Sql2oTeamDaoTest {
         teamDao.add(teamOne);
 
         int teamOneId = teamOne.getId();
-        Member memOne = new Member("Bobson Dugnutt");
-        Member memTwo = new Member("Sleve McDicheal");
-        Member memThree = new Member("Glenallen Mixon");
+        Member memOne = new Member("Bobson Dugnutt", teamOneId);
+        Member memTwo = new Member("Sleve McDicheal", teamOneId);
+        Member memThree = new Member("Glenallen Mixon", teamOneId);
 
         memberDao.add(memOne);
         memberDao.add(memTwo);

@@ -49,6 +49,6 @@ public class TeamTest {
   @Test
   public void findById_findIndividualTeamById_Team(){
     Team team = new Team(name, members, desc);
-    assertEquals(1, Team.findById(testTeam.getId()).getId());
+    assertEquals(0, Team.findById(testTeam.getId()).getId());
   }
 }
