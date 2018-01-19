@@ -41,4 +41,12 @@ public class Sql2oMemberDaoTest {
         assertNotEquals(id, memberDao.findById(member.getId()).getId());
     }
 
+    @Test
+    public void findById_findSpecificMemberById() throws Exception{
+        Member member = setupMemberOne();
+        memberDao.add(member);
+        Member foundMember = memberDao.findById(member.getId());
+        assertEquals(foundMember, member);
+    }
+
 }
