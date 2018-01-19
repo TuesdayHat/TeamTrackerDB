@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by Guest on 1/19/18.
  */
-public class Sql2oTeamDao implements teamDao{
+public class Sql2oTeamDao implements TeamDao {
     private final Sql2o sql2o;
 
     public Sql2oTeamDao(Sql2o sql2o){

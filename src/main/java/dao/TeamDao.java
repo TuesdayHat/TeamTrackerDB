@@ -4,7 +4,7 @@ import models.*;
 
 import java.util.List;
 
-public interface teamDao {
+public interface TeamDao {
 
     //create
     void add (Team team);
