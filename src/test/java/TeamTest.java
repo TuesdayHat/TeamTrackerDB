@@ -4,8 +4,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class TeamTest {
-  private String name = "models.Team";
-  private String desc = "The Best models.Team";
+  private String name = "Team";
+  private String desc = "The Best Team";
   private String members = "Bobson Dugnutt, Todd Bonzalez, Mike Truk, Willie Dustice";
 
   private Team testTeam = new Team(name, members, desc);
