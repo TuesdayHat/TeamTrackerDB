@@ -17,7 +17,14 @@ public class Sql2oTeamDao implements teamDao{
 
     @Override
     public void add(Team team){
-
+        String sql = "INSERT INTO teams (name) VALUES (:name)";
+        try(Connection con = sql2o.open()){
+            int id = (int) con.createQuery(sql)
+                    .bind(team)
+                    .executeUpdate()
+                    .getKey();
+            team.setId(id);
+        }
     }
 
     @Override
