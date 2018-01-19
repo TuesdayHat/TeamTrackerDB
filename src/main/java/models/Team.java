@@ -62,4 +62,23 @@ public class Team {
   public int getId(){
     return id;
   }
+
+    @Override
+    public boolean equals(Object o){
+        if (this == o) return false;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Team team = (Team) o;
+
+        if (id != team.id) return false;
+        return name.equals(team.name);
+    }
+
+    @Override
+    public int hashCode(){
+        int result = name.hashCode();
+        result = 31*result+id;
+
+        return result;
+    }
 }

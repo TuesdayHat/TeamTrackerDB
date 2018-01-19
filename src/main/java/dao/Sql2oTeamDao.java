@@ -24,12 +24,14 @@ public class Sql2oTeamDao implements teamDao{
                     .executeUpdate()
                     .getKey();
             team.setId(id);
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
         }
     }
 
     @Override
     public Team findById(int id){
-        try(Connection con = sql2o.open()){
+        try(Connection con = sql2o.open()) {
             return con.createQuery("SELECT * FROM teams WHERE id = :id")
                     .addParameter("id", id)
                     .executeAndFetchFirst(Team.class);
