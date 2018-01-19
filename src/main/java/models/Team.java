@@ -15,7 +15,7 @@ public class Team {
     name = teamName;
     description = desc;
     members = popMembers(people);
-    id = instances.size();
+    id = instances.size() - 1;
   }
 
   private List<String> popMembers(String names){
@@ -43,7 +43,7 @@ public class Team {
   }
 
   public static Team findById(int id){
-    return instances.get(id-1);
+    return instances.get(id);
   }
 
   //SIMPLE GETTER METHODS______________________________
