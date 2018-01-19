@@ -90,6 +90,6 @@ public class Sql2oTeamDaoTest {
 
         teamDao.deleteById(teamOne.getId());
         assertEquals(1, teamDao.getAll().size());
-//        assertEquals(teamTwo, teamDao.getAll().get(0));
+        assertEquals(teamTwo, teamDao.getAll().get(0));
     }
 }
