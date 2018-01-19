@@ -1,3 +1,5 @@
+package models;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +10,7 @@ public class Team {
   private static List<Team> instances = new ArrayList<>();
   private int id;
 
-  Team(String teamName, String people, String desc){
+  public Team(String teamName, String people, String desc){
     instances.add(this);
     name = teamName;
     description = desc;

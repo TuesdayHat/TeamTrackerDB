@@ -1,9 +1,11 @@
 import java.util.HashMap;
 import java.util.Map;
+
+import models.Team;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import static spark.Spark.*;
-import java.util.ArrayList;
+
 import java.util.List;
 
 public class App {

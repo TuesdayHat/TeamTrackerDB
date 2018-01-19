@@ -1,10 +1,11 @@
+import models.Team;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class TeamTest {
-  private String name = "Team";
-  private String desc = "The Best Team";
+  private String name = "models.Team";
+  private String desc = "The Best models.Team";
   private String members = "Bobson Dugnutt, Todd Bonzalez, Mike Truk, Willie Dustice";
 
   private Team testTeam = new Team(name, members, desc);
@@ -16,12 +17,12 @@ public class TeamTest {
 
   @Test
   public void getName_getsName_string(){
-    assertEquals("Team", testTeam.getName());
+    assertEquals("models.Team", testTeam.getName());
   }
 
   @Test
   public void getDescription_getsDescription_string(){
-    assertEquals("The Best Team", testTeam.getDescription());
+    assertEquals("The Best models.Team", testTeam.getDescription());
   }
 
   @Test
