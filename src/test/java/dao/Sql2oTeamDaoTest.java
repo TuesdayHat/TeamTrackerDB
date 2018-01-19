@@ -92,4 +92,12 @@ public class Sql2oTeamDaoTest {
         assertEquals(1, teamDao.getAll().size());
         assertEquals(teamTwo, teamDao.getAll().get(0));
     }
+
+    @Test
+    public void clearAllTeams_wipeAllTeamsFromDatabase(){
+        teamDao.add(setupTeamOne());
+        teamDao.add(setupTeamTwo());
+        teamDao.clearAllTeams();
+        assertEquals(0, teamDao.getAll().size());
+    }
 }

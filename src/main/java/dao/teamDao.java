@@ -20,5 +20,5 @@ public interface teamDao {
 
     //delete
     void deleteById(int id);
-//    void clearAllTeams();
+    void clearAllTeams();
 }
