@@ -4,6 +4,7 @@ package dao;
 import models.Member;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
+import org.sql2o.Sql2oException;
 
 public class Sql2oMemberDao implements MemberDao{
 
@@ -24,6 +25,18 @@ public class Sql2oMemberDao implements MemberDao{
 
     @Override
     public void add(Member member){
-
+        String sql = "INSERT INTO members (name, teamId) VALUES (:name, :teamId)";
+        try (Connection con = sql2o.open()){
+            int id = (int) con.createQuery(sql)
+                    .addParameter("name", member.getName())
+                    .addParameter("teamId", member.getTeamId())
+                    .addColumnMapping("NAME", "name")
+                    .addColumnMapping("TEAMID", "teamId")
+                    .executeUpdate()
+                    .getKey();
+            member.setId(id);
+        }catch (Sql2oException ex) {
+            System.out.println(ex); //oops we have an error!
+        }
     }
 }
