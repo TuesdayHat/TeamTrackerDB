@@ -39,12 +39,19 @@ public class Sql2oTeamDaoTest {
         return new Team(name, members, desc );
     }
 
+    public Team setupTeamTwo(){
+        String name = "Team Two";
+        String desc = "The Second Teamiest Team But Still Pretty Teamy";
+        String members = "Sleve McDicheal, Glenallen Mixon, Kevin Noginly, Darryl Archideld";
+        return new Team(name, members, desc );
+    }
+
     @Test
     public void add_addingNewTeamSetsId_int(){
         Team team = setupTeamOne();
         int initialId = team.getId();
         teamDao.add(team);
-        assertEquals(initialId, team.getId());
+        assertNotEquals(initialId, team.getId());
     }
 
     @Test
@@ -53,5 +60,12 @@ public class Sql2oTeamDaoTest {
         teamDao.add(team);
         Team foundTeam = teamDao.findById(team.getId());
         assertEquals(team, foundTeam);
+    }
+
+    @Test
+    public void getAll_allAddedTeamsReturnedByGetAll_int(){
+        teamDao.add(setupTeamOne());
+        teamDao.add(setupTeamTwo());
+        assertEquals(2, teamDao.getAll().size());
     }
 }
