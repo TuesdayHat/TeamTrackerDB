@@ -33,6 +33,10 @@ public class Sql2oMemberDaoTest {
         return new Member("Bobson Dugnutt");
     }
 
+    public Member setupMemberTwo(){
+        return new Member("Sleve McDicheal");
+    }
+
     @Test
     public void add_addMemberSetsId() throws Exception {
         Member member = setupMemberOne();
@@ -49,4 +53,19 @@ public class Sql2oMemberDaoTest {
         assertEquals(foundMember, member);
     }
 
+    @Test
+    public void getAll_allAddedMemberReturnedFromGetAll(){
+        Member memTwo = setupMemberTwo();
+        Member memOne = setupMemberOne();
+
+        memberDao.add(memOne);
+        memberDao.add(memTwo);
+
+        assertEquals(2, memberDao.getAll().size());
+    }
+
+//    @Test
+//    public void update_changeNameOfTeamMember() throws Exception{
+//
+//    }
 }
