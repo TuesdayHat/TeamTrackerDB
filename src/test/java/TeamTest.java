@@ -17,12 +17,12 @@ public class TeamTest {
 
   @Test
   public void getName_getsName_string(){
-    assertEquals("models.Team", testTeam.getName());
+    assertEquals("Team", testTeam.getName());
   }
 
   @Test
   public void getDescription_getsDescription_string(){
-    assertEquals("The Best models.Team", testTeam.getDescription());
+    assertEquals("The Best Team", testTeam.getDescription());
   }
 
   @Test
