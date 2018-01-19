@@ -80,4 +80,16 @@ public class Sql2oTeamDaoTest {
         assertNotEquals(originalName, teamUpdate.getName());
 
     }
+
+    @Test
+    public void deleteById_deleteSpecificTeamById(){
+        Team teamOne = setupTeamOne();
+        Team teamTwo = setupTeamTwo();
+        teamDao.add(teamOne);
+        teamDao.add(teamTwo);
+
+        teamDao.deleteById(teamOne.getId());
+        assertEquals(1, teamDao.getAll().size());
+//        assertEquals(teamTwo, teamDao.getAll().get(0));
+    }
 }

@@ -63,4 +63,9 @@ public class Sql2oTeamDao implements teamDao{
 
     }
 
+    @Override
+    public void deleteById(int id){
+
+    }
+
 }
