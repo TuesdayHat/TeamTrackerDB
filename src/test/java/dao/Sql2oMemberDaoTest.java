@@ -99,4 +99,12 @@ public class Sql2oMemberDaoTest {
 
         assertEquals(0, memberDao.getAll().size());
     }
+
+    @Test
+    public void teamIdIsReturnedCorrectly() throws Exception{
+        Member mem = setupMemberOne();
+        int origTeamId = mem.getTeamId();
+        memberDao.add(mem);
+        assertEquals(origTeamId, memberDao.findById(mem.getId()).getTeamId());
+    }
 }

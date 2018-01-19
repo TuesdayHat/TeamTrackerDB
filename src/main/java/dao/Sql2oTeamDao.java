@@ -86,4 +86,13 @@ public class Sql2oTeamDao implements TeamDao {
         }
     }
 
+    @Override
+    public List<Member> getMembersOfTeam(int teamId){
+        try(Connection con = sql2o.open()){
+            return con.createQuery("SELECT * FROM members WHERE teamId = :teamId")
+                    .addParameter("teamId", teamId)
+                    .executeAndFetch(Member.class);
+        }
+    }
+
 }

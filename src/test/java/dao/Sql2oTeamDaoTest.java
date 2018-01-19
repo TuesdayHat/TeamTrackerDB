@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
  */
 public class Sql2oTeamDaoTest {
     private Sql2oTeamDao teamDao;
-//    private Sql2oMemberDao memberdao;
+    private Sql2oMemberDao memberDao;
     private Connection conn;
 
     @Before
@@ -22,7 +22,7 @@ public class Sql2oTeamDaoTest {
         String connectionString = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
         Sql2o sql2o = new Sql2o(connectionString, "", "");
         teamDao = new Sql2oTeamDao(sql2o);
-//        memberDao = new Sql2oMemberDao(sql2o);
+        memberDao = new Sql2oMemberDao(sql2o);
 
         conn = sql2o.open();
     }
@@ -35,14 +35,22 @@ public class Sql2oTeamDaoTest {
     public Team setupTeamOne(){
         String name = "Team One";
         String desc = "The Teamiest Team That Ever Teamed Up";
-        String members = "Bobson Dugnutt, Todd Bonzalez, Mike Truk, Willie Dustice";
+//        String members = "Bobson Dugnutt, Todd Bonzalez, Mike Truk, Willie Dustice";
+        String members = "";
         return new Team(name, members, desc );
     }
 
     public Team setupTeamTwo(){
         String name = "Team Two";
         String desc = "The Second Teamiest Team But Still Pretty Teamy";
-        String members = "Sleve McDicheal, Glenallen Mixon, Kevin Noginly, Darryl Archideld";
+//        String members = "Sleve McDicheal, Glenallen Mixon, Kevin Noginly, Darryl Archideld";
+        String members = "";
+        return new Team(name, members, desc );
+    }
+    public Team setupTeamThree(){
+        String name = "Team Two";
+        String desc = "The Second Teamiest Team But Still Pretty Teamy";
+        String members = "";
         return new Team(name, members, desc );
     }
 
@@ -99,5 +107,25 @@ public class Sql2oTeamDaoTest {
         teamDao.add(setupTeamTwo());
         teamDao.clearAllTeams();
         assertEquals(0, teamDao.getAll().size());
+    }
+
+    @Test
+    public void getMembersOfTeam_returnsAllMembersInTeam(){
+        Team teamOne = setupTeamOne();
+        teamDao.add(teamOne);
+
+        int teamOneId = teamOne.getId();
+        Member memOne = new Member("Bobson Dugnutt");
+        Member memTwo = new Member("Sleve McDicheal");
+        Member memThree = new Member("Glenallen Mixon");
+
+        memberDao.add(memOne);
+        memberDao.add(memTwo);
+
+        System.out.println(teamDao.getMembersOfTeam(teamOneId).size());
+        assertTrue(teamDao.getMembersOfTeam(teamOneId).size() == 2);
+        assertTrue(teamDao.getMembersOfTeam(teamOneId).contains(memOne));
+        assertTrue(teamDao.getMembersOfTeam(teamOneId).contains(memTwo));
+        assertFalse(teamDao.getMembersOfTeam(teamOneId).contains(memThree));
     }
 }
