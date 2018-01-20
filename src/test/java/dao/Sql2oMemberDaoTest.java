@@ -30,11 +30,11 @@ public class Sql2oMemberDaoTest {
     }
 
     public Member setupMemberOne(){
-        return new Member("Bobson Dugnutt");
+        return new Member("Bobson Dugnutt", 1);
     }
 
     public Member setupMemberTwo(){
-        return new Member("Sleve McDicheal");
+        return new Member("Sleve McDicheal", 1);
     }
 
     @Test

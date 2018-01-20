@@ -6,9 +6,10 @@ public class Member {
     private int id;
     private int teamId;
 
-    public Member(String name, int... teamId){
+    public Member(String name, int teamId){
         this.name = name;
-        this.teamId = teamId[0];
+        this.teamId = teamId;
+
     }
 
     public void setName(String newName){
